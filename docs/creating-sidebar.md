@@ -48,7 +48,7 @@ export default App;
 
 ### Folder Structure:
 
-A ```shcomponents/ folder``` was added inside the ```shsrc/``` folder to keep the components organized.
+A ```sh components/ folder``` was added inside the ```sh src/``` folder to keep the components organized.
 
 ### ProjectSidebar.jsx:
 
