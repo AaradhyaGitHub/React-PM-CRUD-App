@@ -48,17 +48,17 @@ export default App;
 
 ### Folder Structure:
 
-A components/ folder was added inside the src/ folder to keep the components organized.
+A ```shcomponents/ folder``` was added inside the ```shsrc/``` folder to keep the components organized.
 
 ### ProjectSidebar.jsx:
 
-A new component called ProjectSidebar.jsx was created for the sidebar. This component will render the list of project buttons.
+A new component called `ProjectSidebar.jsx` was created for the sidebar. This component will render the list of project buttons.
 
 ### App.jsx Updates:
 
 1. Imported `ProjectSidebar.jsx` into `App.jsx` to integrate it into the main layout of the app.
-2. Added the main component as the outermost wrapper for the app.
-3. Rendered the `ProjectSidebar` component inside the wrapper to display the sidebar alongside the main content.
+2. Added the `main` component as the outermost wrapper for the app.
+3. Rendered the `ProjectSidebar` component inside the wrapper to display the sidebar alongside the `main` content.
 
 ## Comments/Notes:
 
