@@ -1,4 +1,4 @@
-export default function () {
+export default function ProjectSidebar () {
   return (
     <aside>
       <h2>Your Projects</h2>

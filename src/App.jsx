@@ -1,7 +1,7 @@
 import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
 function App() {
   return (
-    <main>
+    <main className="h-screen">
       <ProjectsSidebar />
     </main>
   );

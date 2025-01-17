@@ -13,7 +13,7 @@ The purpose of this sidebar is to:
 
 ## Code
 
-** `ProjectSidebar.jsx` **
+ `ProjectSidebar.jsx` 
 
 ```jsx
 export default function ProjectSidebar() {
@@ -29,7 +29,7 @@ export default function ProjectSidebar() {
 }
 ```
 
-** `App.jsx` **
+ `App.jsx` 
 
 ```jsx
 import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
@@ -56,9 +56,9 @@ A new component called ProjectSidebar.jsx was created for the sidebar. This comp
 
 ### App.jsx Updates:
 
-1. Imported ProjectSidebar.jsx into App.jsx to integrate it into the main layout of the app.
+1. Imported `ProjectSidebar.jsx` into `App.jsx` to integrate it into the main layout of the app.
 2. Added the main component as the outermost wrapper for the app.
-3. Rendered the ProjectSidebar component inside the wrapper to display the sidebar alongside the main content.
+3. Rendered the `ProjectSidebar` component inside the wrapper to display the sidebar alongside the main content.
 
 ## Comments/Notes:
 
