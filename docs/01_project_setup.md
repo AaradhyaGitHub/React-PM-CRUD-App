@@ -19,8 +19,3 @@ Run the following command in the terminal to install all the necessary dependenc
 ```sh
 npm install
 
-
-### **Changes Made:**
-- Removed  personal narration.
-- Made it instructional and more direct, as if someone else is following along with the setup steps.
-
