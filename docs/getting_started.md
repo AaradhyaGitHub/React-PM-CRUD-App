@@ -18,5 +18,6 @@ npm run dev
 ## 3. Open local development server 
 
 It should look somthing like:
-```sh Local:   http://localhost:5173/
+```sh 
+Local:   http://localhost:5173/
 ```
