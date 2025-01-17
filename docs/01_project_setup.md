@@ -7,7 +7,7 @@
 - `git push -u origin main`
 
 ## 2. Installed dependencies
-- ###tailwind pre installed
+- ### tailwind pre installed
 - `npm install`
 
 ## 3. Created folder structure
