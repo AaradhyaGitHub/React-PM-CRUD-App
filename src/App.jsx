@@ -1,8 +1,10 @@
+import NewProject from "./components/NewProject.jsx";
 import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
 function App() {
   return (
-    <main className="h-screen"> 
+    <main className="h-screen flex gap-8"> 
       <ProjectsSidebar />
+      <NewProject />
     </main>
   );
 }

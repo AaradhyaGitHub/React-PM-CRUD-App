@@ -4,7 +4,7 @@ This guide walks through the initial steps of setting up the project. The local 
 
 ## 1. Local Repository Downloaded
 
-The project was downloaded from the starting point and extracted to a local directory. 
+The project was downloaded from the starting point and extracted to a local directory.
 
 ## 2. Install Dependencies
 
@@ -15,8 +15,8 @@ npm install
 npm run dev
 
 ```
-## 3. Open local development server 
+
+## 3. Open local development server
 
 It should look somthing like:
-```sh Local:   http://localhost:5173/
-```
+`Local:   http://localhost:5173/`
