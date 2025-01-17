@@ -1,24 +1,26 @@
-# Project Setup
+# Project Setup: Step-by-Step Guide
 
-## 1. Initialized Git and pushed to GitHub
+This guide covers the essential steps for setting up the project. It walks through downloading the project, installing dependencies, initializing Git, and setting up documentation.
 
-- `git init`
-- `git remote add origin <repo-url>`
-- `git push -u origin main`
+## 1. Download the Project
 
-## 2. Installed dependencies
-- ### tailwind pre installed
-- `npm install`
+Start by downloading the starting project from the following GitHub link:  
+[Download Starting Project](https://github.com/academind/react-complete-guide-course-resources/blob/main/attachments/09%20Practice%20Project%20-%20Project%20Management/01-starting-project.zip)
 
-## 3. Created folder structure
+Once downloaded, extract the contents to a folder on the local machine.
 
-- `src/components/`
-- `src/assets/`
-- `src/App.jsx`
+## 2. Install Dependencies
 
-Or with syntax highlighting:
-```md
-```javascript
-const greet = () => {
-    console.log('Hello, World!');
-}
+The project uses **Vite** as the build tool and **Tailwind CSS** for styling. Here’s what needs to be done:
+
+### **Install npm Packages**
+Run the following command in the terminal to install all the necessary dependencies:
+
+```sh
+npm install
+
+
+### **Changes Made:**
+- Removed  personal narration.
+- Made it instructional and more direct, as if someone else is following along with the setup steps.
+
