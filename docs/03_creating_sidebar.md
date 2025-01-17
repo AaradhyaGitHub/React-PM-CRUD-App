@@ -13,7 +13,7 @@ The purpose of this sidebar is to:
 
 ## Code
 
-`ProjectSidebar.jsx`
+ `ProjectSidebar.jsx` 
 
 ```jsx
 export default function ProjectSidebar() {
@@ -29,7 +29,7 @@ export default function ProjectSidebar() {
 }
 ```
 
-`App.jsx`
+ `App.jsx` 
 
 ```jsx
 import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
@@ -48,7 +48,7 @@ export default App;
 
 ### Folder Structure:
 
-A `components/ folder` was added inside the `src/` folder to keep the components organized.
+A ```components/ folder``` was added inside the ```src/``` folder to keep the components organized.
 
 ### ProjectSidebar.jsx:
 
