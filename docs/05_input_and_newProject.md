@@ -116,4 +116,4 @@ export default App;
 
 ## Conclusion
 
-The `Input` component streamlines the creation of labeled input fields and textareas, while the `NewProject` component organizes the inputs and action buttons into a clean structure. The integration into `App.jsx` ensures a responsive layout with proper spacing using Tailwind CSS. Let me know if you need further refinements!
+The `Input` component streamlines the creation of labeled input fields and textareas, while the `NewProject` component organizes the inputs and action buttons into a clean structure. The integration into `App.jsx` ensures a responsive layout with proper spacing using Tailwind CSS. 

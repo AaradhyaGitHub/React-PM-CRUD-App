@@ -48,7 +48,7 @@ export default App;
 
 ### Folder Structure:
 
-A ```components/ folder``` was added inside the ```src/``` folder to keep the components organized.
+A `components/` folder was added inside the `src/` folder to keep the components organized.
 
 ### ProjectSidebar.jsx:
 
