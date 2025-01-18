@@ -79,7 +79,7 @@ This allows Webpack (or another bundler) to correctly handle and optimize the im
 
 ## 3. Creating `Button.jsx`
 
-Since we use similar styled buttons in both `NewProject.jsx` and `ProjectsSidebar.jsx`, we outsourced the button component for reusability.
+Since we use similar styled buttons in both `NewProject.jsx` and `ProjectSidebar.jsx`, we outsourced the button component for reusability.
 
 ### `Button.jsx`
 
@@ -103,7 +103,7 @@ By including `{...props}` in the `<button>` element, we allow additional propert
 
 Now that we have the `Button` component, we update `ProjectsSidebar.jsx` and `NoProjectSelected.jsx` to use it.
 
-### `ProjectsSidebar.jsx`
+### `ProjectSidebar.jsx`
 
 ```jsx
 import Button from "./Button.jsx";
