@@ -1,20 +1,14 @@
-# Managing State for Dynamic Component Rendering
+# Implementing Dynamic Component Rendering
 
-## Overview
+## Implementation Overview
 
-In this section, we introduce state management in our React application to control which component is displayed: `NewProject` or `NoProjectSelected`. This is achieved by managing a `selectedProjectId` state within the `App` component.
+Building on our previous state management setup, we now implement dynamic rendering of components based on the `selectedProjectId` state. This involves three main steps:
 
-## Purpose
+1. Passing state update functions as props
+2. Accepting and using these props in child components
+3. Implementing conditional rendering logic
 
-The `selectedProjectId` state is designed to store one of three possible values:
-
-- **`undefined`**: Indicates that no project has been selected and no new project is being created
-- **`null`**: Signals that the user is in the process of adding a new project
-- **A project ID**: Represents a selected project that the user wants to view or edit
-
-This approach allows us to minimize state complexity by avoiding additional state variables. An alternative could have been defining a `currentAction` state with values like `'adding'`, `'selectedProject'`, or `'nothingSelected'`, but the chosen approach keeps the state lean.
-
-## Code Implementation
+## Updated Implementation
 
 ### App.jsx
 
@@ -25,8 +19,7 @@ import NoProjectSelected from "./components/NoProjectSelected.jsx";
 import ProjectsSidebar from "./components/ProjectsSidebar.jsx";
 
 function App() {
-  // State to manage selected project and available projects
-  const [projects, setProjectsState] = useState({
+  const [projectState, setProjectsState] = useState({
     selectedProjectId: undefined,
     projects: []
   });
@@ -35,15 +28,15 @@ function App() {
     setProjectsState((prevState) => {
       return {
         ...prevState,
-        selectedProjectId: null // Signals that a new project is being added
+        selectedProjectId: null
       };
     });
   }
 
   let content;
-  if (projects.selectedProjectId === null) {
+  if (projectState.selectedProjectId === null) {
     content = <NewProject />;
-  } else if (projects.selectedProjectId === undefined) {
+  } else if (projectState.selectedProjectId === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
   }
 
@@ -58,36 +51,12 @@ function App() {
 export default App;
 ```
 
-## State Management Breakdown
+**Key Changes in App.jsx:**
+- Added conditional rendering logic using `content` variable
+- Passed `handleStartAddProject` to both `ProjectsSidebar` and `NoProjectSelected`
+- Using `projectState.selectedProjectId` to determine which component to render
 
-- `selectedProjectId: undefined` → Initially, no project is selected, and the user is not adding one
-- `handleStartAddProject()` → When triggered, updates `selectedProjectId` to null, indicating a new project is being created
-
-**Alternative Approach**: Instead of `selectedProjectId`, we could have used a `currentAction` state with values such as 'adding', 'selectedProject', or 'nothingSelected'. However, using `selectedProjectId` keeps the state minimal and avoids redundant variables.
-
-## Component Implementation
-
-### ProjectsSidebar Component
-
-```jsx
-import Button from "./Button.jsx";
-
-export default function ProjectSidebar({ onStartAddProject }) {
-  return (
-    <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
-      <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">
-        Your Projects
-      </h2>
-      <div>
-        <Button onClick={onStartAddProject}>+ Add Project</Button>
-      </div>
-      <ul></ul>
-    </aside>
-  );
-}
-```
-
-### NoProjectSelected Component
+### NoProjectSelected.jsx
 
 ```jsx
 import noProjectImage from "../assets/no-projects.png";
@@ -115,6 +84,37 @@ export default function NoProjectSelected({ onStartAddProject }) {
 }
 ```
 
-## Conclusion
+**Key Changes in NoProjectSelected.jsx:**
+- Added `onStartAddProject` prop in the component parameters
+- Connected the prop to Button's `onClick` handler
 
-This state-driven approach allows our app to dynamically switch between different views (`NewProject` and `NoProjectSelected`) while maintaining clarity and efficiency in state management. The next step will be integrating project selection logic to dynamically render the selected project based on `selectedProjectId`.
+### ProjectsSidebar.jsx
+
+```jsx
+import Button from "./Button.jsx";
+
+export default function ProjectSidebar({ onStartAddProject }) {
+  return (
+    <aside className="w-1/3 px-8 py-16 bg-stone-900 text-stone-50 md:w-72 rounded-r-xl">
+      <h2 className="mb-8 font-bold uppercase md:text-xl text-stone-200">
+        Your Projects
+      </h2>
+      <div>
+        <Button onClick={onStartAddProject}>+ Add Project</Button>
+      </div>
+      <ul></ul>
+    </aside>
+  );
+}
+```
+
+**Key Changes in ProjectsSidebar.jsx:**
+- Added `onStartAddProject` prop in the component parameters
+- Connected the prop to Button's `onClick` handler
+
+## State-Based Rendering Logic
+
+The application now switches between components based on `selectedProjectId`:
+- When `null`: Displays `<NewProject />`
+- When `undefined`: Displays `<NoProjectSelected />`
+- Both components receive `onStartAddProject` to trigger state changes when needed
