@@ -124,7 +124,7 @@ function ProjectSidebar({ onStartAddProject }) {
 
 ### Step 3: Implementing Dynamic Rendering
 
-Here's where the magic happens! In our App.jsx, we add this logic:
+In our App.jsx, we add this logic:
 
 ```jsx
 let content;
@@ -149,7 +149,4 @@ return (
 );
 ```
 
-This way, our app dynamically switches between different views based on the state, creating a smooth user experience!
-
-## What's Next?
-In the next section, we'll handle what happens when a user actually creates a new project and how to manage that in our state.
+This way, our app dynamically switches between different views based on the state, creating a smooth user experience
