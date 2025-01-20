@@ -16,24 +16,37 @@ function App() {
     }));
   }
 
-  function handleAddProject(projectData) {
+  function handleCancelProjectAddProject() {
     setProjectState((prevState) => ({
       ...prevState,
-      selectedProjectId: undefined,
-      projects: [
-        ...prevState.projects,
-        {
-          ...projectData,
-          id: Math.random()
-        }
-      ]
+      selectedProjectId: undefined
     }));
+  }
+
+  function handleAddProject(projectData) {
+    setProjectState((prevState) => {
+      const projectId = Math.random();
+      const newProject = {
+        ...projectData,
+        id: projectId
+      };
+      return {
+        ...prevState,
+        selectedProjectId: undefined,
+        projects: [...prevState.projects, newProject]
+      };
+    });
   }
 
   let content;
 
   if (projectState.selectedProjectId === null) {
-    content = <NewProject onAdd={handleAddProject} />;
+    content = (
+      <NewProject
+        onAdd={handleAddProject}
+        onCancel={handleCancelProjectAddProject}
+      />
+    );
   } else if (projectState.selectedProjectId === undefined) {
     content = <NoProjectSelected onStartAddProject={handleStartAddProject} />;
   }
