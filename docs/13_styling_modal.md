@@ -1,4 +1,4 @@
-# Styling and Functionality of the NewProject Component
+# Styling and Functionality of the NewProject and Modal Components
 
 We styled **NewProject** components with the same rules as the **NoProjectSelected** component. This ensures consistent design across the application.
 
