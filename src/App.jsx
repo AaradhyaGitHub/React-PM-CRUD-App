@@ -7,8 +7,30 @@ import SelectedProject from "./components/SelectedProject.jsx";
 function App() {
   const [projectState, setProjectState] = useState({
     selectedProjectId: undefined,
-    projects: []
+    projects: [],
+    tasks: [],
   });
+
+  function handleAddTask(text) {
+    setProjectState((prevState) => {
+      const taskId = Math.random();
+      const newTask = {
+        text: text,
+        //we need projectId to know which project this task belongs to 
+        //we can extract that from the prevState because that's the currently selectedProject
+        projectId: prevState.selectedProjectId,
+        id: taskId
+      };
+      //we don't touch anything else especially the project, we just want to add tasks. 
+      return {
+        ...prevState,
+        tasks: [newTask, ...prevState.tasks]
+        //exaplain why [newTask, ...prevState.tasks] and [...prevState.tasks, newTask] are both valid 
+      };
+    });
+  }
+
+  function handleDeleteTask() {}
 
   function handleSelectProject(id) {
     setProjectState((prevState) => ({
@@ -58,7 +80,15 @@ function App() {
   const selectedProject = projectState.projects.find(
     (project) => project.id === projectState.selectedProjectId
   );
-  let content = <SelectedProject project={selectedProject} onDelete={handleDeleteProject}/>;
+  let content = (
+    <SelectedProject
+      project={selectedProject}
+      onDelete={handleDeleteProject}
+      onAddTask={handleAddTask}
+      onDeleteTask={handleDeleteTask}
+      tasks = {projectState.tasks}
+    />
+  );
 
   if (projectState.selectedProjectId === null) {
     content = (
