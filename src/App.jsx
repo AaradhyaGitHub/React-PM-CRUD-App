@@ -8,7 +8,7 @@ function App() {
   const [projectState, setProjectState] = useState({
     selectedProjectId: undefined,
     projects: [],
-    tasks: [],
+    tasks: []
   });
 
   function handleAddTask(text) {
@@ -16,21 +16,27 @@ function App() {
       const taskId = Math.random();
       const newTask = {
         text: text,
-        //we need projectId to know which project this task belongs to 
+        //we need projectId to know which project this task belongs to
         //we can extract that from the prevState because that's the currently selectedProject
         projectId: prevState.selectedProjectId,
         id: taskId
       };
-      //we don't touch anything else especially the project, we just want to add tasks. 
+      //we don't touch anything else especially the project, we just want to add tasks.
       return {
         ...prevState,
         tasks: [newTask, ...prevState.tasks]
-        //exaplain why [newTask, ...prevState.tasks] and [...prevState.tasks, newTask] are both valid 
+        //exaplain why [newTask, ...prevState.tasks] and [...prevState.tasks, newTask] are both valid
       };
     });
   }
 
-  function handleDeleteTask() {}
+  function handleDeleteTask(id) {
+    //we need id of the task that should be deleted
+    setProjectState((prevState) => ({
+      ...prevState,
+      tasks: prevState.tasks.filter((task) => task.id !== id),
+    }));
+  }
 
   function handleSelectProject(id) {
     setProjectState((prevState) => ({
@@ -86,7 +92,7 @@ function App() {
       onDelete={handleDeleteProject}
       onAddTask={handleAddTask}
       onDeleteTask={handleDeleteTask}
-      tasks = {projectState.tasks}
+      tasks={projectState.tasks}
     />
   );
 
@@ -107,6 +113,7 @@ function App() {
         onStartAddProject={handleStartAddProject}
         projects={projectState.projects}
         onSelectProject={handleSelectProject}
+        selectedProjectId={projectState.selectedProjectId}
       />
       {content}
     </main>
